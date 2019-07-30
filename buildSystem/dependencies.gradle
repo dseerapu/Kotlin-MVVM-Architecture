@@ -1,0 +1,113 @@
+ext {
+
+    // Android dependencies
+    appCompatVersion = '1.1.0-rc01'
+    androidMaterialVersion = '1.0.0'
+    constraintsLayoutVersion = '1.1.3'      //https://developer.android.com/jetpack/androidx/migrate
+    multidexVersion = '2.0.0'               //https://developer.android.com/jetpack/androidx/migrate
+    lifecycleVersion = '1.1.0'
+    dataBindingVersion = '2.3.3'
+    daggerVersion = '2.16'
+    architecturalComponentVersions='2.0.0'
+    roomDatabase='2.1.0'
+
+    // Libraries
+    reactiveAndroidVersion = '2.0.2'        // https://github.com/ReactiveX/RxAndroid
+    reactiveJavaVersion = '2.1.14'           // https://github.com/ReactiveX/RxAndroid
+    retrofitVersion = '2.6.0'               // https://github.com/square/retrofit
+    okHttpVersion = '3.10.0'                 // https://github.com/square/okhttp
+    glideVersion = '4.8.0'                  // https://github.com/bumptech/glide
+    chuckVersion ='1.1.0'                        //https://github.com/jgilfelt/chuck
+    stethoVersion = '1.5.1'                 // https://github.com/facebook/stetho
+
+    // Testing
+    jUnitVersion = '4.12'
+    testRunnerVersion ='1.2.0'
+    expressoVersion='3.2.0'
+
+
+    // dependencies
+
+    deps = [
+            app: [
+                    implementation       : [
+
+                            // Material Design
+                            "androidx.appcompat:appcompat:$appCompatVersion",
+                            "com.google.android.material:material:$androidMaterialVersion",
+                            "androidx.constraintlayout:constraintlayout:$constraintsLayoutVersion",
+
+                            //Kotlin version
+                            "androidx.core:core-ktx:+",
+
+                            //dagger
+                            "com.google.dagger:dagger:$daggerVersion",
+                            "com.google.dagger:dagger-android-support:$daggerVersion",
+
+                            //networking
+                            "com.squareup.retrofit2:retrofit:$retrofitVersion",
+                            "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion",
+                            "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+                            "com.squareup.okhttp3:logging-interceptor:$okHttpVersion",
+
+
+                            // Android Architecture Components
+                            "androidx.lifecycle:lifecycle-extensions:$architecturalComponentVersions",
+                            "androidx.lifecycle:lifecycle-common-java8:$architecturalComponentVersions",
+                            "androidx.lifecycle:lifecycle-reactivestreams:$architecturalComponentVersions",
+
+                            // RxJava / RxAndroid
+                            "io.reactivex.rxjava2:rxjava:$reactiveJavaVersion",
+                            "io.reactivex.rxjava2:rxandroid:$reactiveAndroidVersion",
+
+                            // Room SQLite for data persistence
+                            "androidx.room:room-runtime:$roomDatabase",
+                            "androidx.room:room-rxjava2:$roomDatabase",
+
+                            //MultiDex
+                            "androidx.multidex:multidex:$multidexVersion",
+
+                            // Life Cycle
+                            "android.arch.lifecycle:extensions:$lifecycleVersion",
+
+                            //Stetho : // watch room database
+                            "com.facebook.stetho:stetho:$stethoVersion"
+                    ],
+
+
+                    annotationProcessor  : [
+
+                    ],
+                    compileOnly          : [
+
+                    ],
+                    testImplementation   : [
+
+                            "junit:junit:$jUnitVersion",
+                            "androidx.test:runner:$testRunnerVersion",
+                            "androidx.test.espresso:espresso-core:$expressoVersion",
+                    ],
+                    kapt                 : [
+
+                            //Dagger for Dependency Injection
+                            "com.google.dagger:dagger-compiler:$daggerVersion",
+                            "com.google.dagger:dagger-android-processor:$daggerVersion",
+
+                            // Data Binding
+                            "com.android.databinding:compiler:$dataBindingVersion",
+
+                            // Room SQLite for data persistence
+                            "androidx.room:room-compiler:$roomDatabase"
+                    ],
+                    debugImplementation  : [
+                            //chuck
+                            "com.readystatesoftware.chuck:library:$chuckVersion"
+                    ],
+                    releaseImplementation: [
+                            //chuck
+                            "com.readystatesoftware.chuck:library-no-op:$chuckVersion"
+                    ]
+            ]
+    ]
+
+}
